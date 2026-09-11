@@ -225,7 +225,11 @@ train.parquet
 trigrams.parquet
 trigram_model.pkl
 train.src.tok
-train.zip
+*.zip
 predictions.csv
 *.parquet
 *.pkl
+*.csv
+*.tok
+scratch_test*
+test_idea.py
