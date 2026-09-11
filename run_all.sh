@@ -54,16 +54,25 @@ case "$MODEL" in
         $PYTHON_CMD hybrid_model.py \
             --dev dev_set_final.csv \
             --output predictions_hybrid.csv \
-            --batch_size 16 \
-            --device auto \
-            --top_k 100
+            --limit 1000 \
+            --alpha 0.5 \
+            --top_k 20
+        
+        echo "--------------------------------------------------"
+        echo "Starting Hybrid Model..."
+        $PYTHON_CMD hybrid_model.py \
+            --dev dev_set_final.csv \
+            --output predictions_hybrid.csv \
+            --limit 1000 \
+            --alpha 0.8 \
+            --top_k 50
         ;;
 
     smoothed)
         echo "Starting Smoothed Fourgram Model ..."
         $PYTHON_CMD smoothed_fourgram.py \
-            --dev dev_set_final.csv \
-            --output predictions_smoothed.csv \
+            --dev test_set_no_answer_final.csv \
+            --output predictions_smoothed_test.csv \
             --method absolute_discounting
         ;;
 
